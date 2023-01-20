@@ -5,6 +5,7 @@ import SinkList from '../components/2d/lists/SinkList'
 import TapList from '../components/2d/lists/TapList'
 
 import PrimitiveModel from '../components/3d/PrimitiveModel'
+import { RecoilRoot } from 'recoil'
 
 const Bathroom = () => {
   const sinks = [
@@ -35,6 +36,7 @@ const Bathroom = () => {
         shadows
         className='bg-white'
       >
+        <RecoilRoot>
         <PresentationControls
           snap={<PrimitiveModel />}
           polar={[-0.2, 0.2]}
@@ -58,8 +60,12 @@ const Bathroom = () => {
         </PresentationControls>
         <Html fullscreen>
           <div className='absolute bottom-0 shadow-xl w-full p-4'>
-            <div className='flex'>
-              <div className='ml-auto flex-col bg-white/10 bg-clip-padding backdrop-filter backdrop-blur-md p-8 rounded-xl shadow-xl space-y-4'>
+            <div className='flex items-end'>
+              <div className='flex flex-col bg-white/50 bg-clip-padding backdrop-filter backdrop-blur-md rounded-xl shadow-xl p-4 space-y-2'>
+                <span className='text-xs'>Made by Maxence Gumiero</span>
+                <a className='text-xs underline hover:text-blue-600 duration-200' href='https://github.com/MaxouJS/bathroom-app-example' target='_blank'>GitHub Repo</a>
+              </div>
+              <div className='ml-auto flex-col bg-white/10 bg-clip-padding backdrop-filter backdrop-blur-md rounded-xl shadow-xl p-8 space-y-4'>
                 <h1 className='text-2xl font-black pb-2 border-b border-black/25'>Bathroom Maker</h1>
                 <div className='flex space-x-4'>
                   <SinkList sinks={sinks} />
@@ -68,7 +74,7 @@ const Bathroom = () => {
               </div>
             </div>
           </div>
-        </Html>
+        </Html></RecoilRoot>
       </Canvas>
     </div>
   )

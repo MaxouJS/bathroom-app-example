@@ -2,8 +2,8 @@ import SinkItem from '../items/SinkItem'
 
 const SinkList = (props) => {
   return (
-    <ul className='bg-white/50'>
-      <li className='bg-black/50 text-white font-bold px-4 py-2'>
+    <ul>
+      <li className='font-bold px-4 py-2'>
         Sinks
       </li>
       {
