@@ -46,7 +46,7 @@ const Bathroom = () => {
   }, [])
 
   return (
-    <div className='h-screen w-screen cursor-grab'>
+    <div className='h-screen max-h-screen w-screen cursor-grab'>
       <Canvas
         shadows
         onMouseDown={() => {setCursor('cursor-grabbing')}}
