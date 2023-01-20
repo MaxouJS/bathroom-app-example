@@ -1,13 +1,19 @@
+
+import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useRecoilState } from 'recoil'
 import { Canvas } from '@react-three/fiber'
 import { Html, PresentationControls } from '@react-three/drei'
 
 import SinkList from '../components/2d/lists/SinkList'
 import TapList from '../components/2d/lists/TapList'
-
 import PrimitiveModel from '../components/3d/PrimitiveModel'
-import { RecoilRoot } from 'recoil'
+
+import currentSinkState from '../atoms/currentSinkState'
+import currentTapState from '../atoms/currentTapState'
+import { useEffect } from 'react'
 
 const Bathroom = () => {
+  const RecoilBridge = useRecoilBridgeAcrossReactRoots_UNSTABLE()
+
   const sinks = [
     {
       fileName: 'BlackSink',
@@ -30,13 +36,20 @@ const Bathroom = () => {
     }
   ]
 
+  const [currentSink, setCurrentSink] = useRecoilState(currentSinkState)
+  const [currentTap, setCurrentTap] = useRecoilState(currentTapState)
+  
+  useEffect(() => {
+    setCurrentSink(sinks[0])
+    setCurrentTap(taps[0])
+  }, [setCurrentSink])
+
   return (
     <div className='h-screen w-screen'>
       <Canvas
         shadows
         className='bg-white'
       >
-        <RecoilRoot>
         <PresentationControls
           snap={<PrimitiveModel />}
           polar={[-0.2, 0.2]}
@@ -49,14 +62,47 @@ const Bathroom = () => {
             fileName='Bathroom'
             position={[0.7825, -0.5, 4]}
           />
-          <PrimitiveModel
-            fileName='BlackSink'
-            position={[0.7825, -0.5, 4]}
-          />
-          <PrimitiveModel
-            fileName='SilverTap'
-            position={[0.7825, -0.5, 4]}
-          />
+          {
+            currentSink && currentSink.name === 'Black Sink'
+              ? 
+                <PrimitiveModel
+                  fileName='BlackSink'
+                  position={[0.7825, -0.5, 4]}
+                />
+              :
+                null
+          }
+          {
+            currentSink && currentSink.name === 'Silver Sink'
+              ? 
+                <PrimitiveModel
+                  fileName='SilverSink'
+                  position={[0.7825, -0.5, 4]}
+                />
+              :
+                null
+          }
+          
+          {
+            currentTap && currentTap.name === 'Black Tap'
+              ? 
+                <PrimitiveModel
+                  fileName='BlackTap'
+                  position={[0.7825, -0.5, 4]}
+                />
+              :
+                null
+          }
+          {
+            currentTap && currentTap.name === 'Silver Tap'
+              ? 
+                <PrimitiveModel
+                  fileName='SilverTap'
+                  position={[0.7825, -0.5, 4]}
+                />
+              :
+                null
+          }
         </PresentationControls>
         <Html fullscreen>
           <div className='absolute bottom-0 shadow-xl w-full p-4'>
@@ -68,13 +114,15 @@ const Bathroom = () => {
               <div className='ml-auto flex-col bg-white/10 bg-clip-padding backdrop-filter backdrop-blur-md rounded-xl shadow-xl p-8 space-y-4'>
                 <h1 className='text-2xl font-black pb-2 border-b border-black/25'>Bathroom Maker</h1>
                 <div className='flex space-x-4'>
-                  <SinkList sinks={sinks} />
-                  <TapList taps={taps} />
+                  <RecoilBridge>
+                    <SinkList sinks={sinks} />
+                    <TapList taps={taps} />
+                  </RecoilBridge>
                 </div>
               </div>
             </div>
           </div>
-        </Html></RecoilRoot>
+        </Html>
       </Canvas>
     </div>
   )

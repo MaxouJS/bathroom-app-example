@@ -9,8 +9,9 @@ const SinkList = (props) => {
       {
         props.sinks && props.sinks.length > 0
           ?
-            props.sinks.map(s => 
+            props.sinks.map((s, index) => 
               <SinkItem
+                key={index}
                 name={s.name}
               />
             )
