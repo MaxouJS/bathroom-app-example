@@ -3,7 +3,7 @@ import SinkItem from '../items/SinkItem'
 const SinkList = (props) => {
   return (
     <ul>
-      <li className='font-bold px-4 py-2'>
+      <li className='md:text-base text-sm font-bold px-4 py-2'>
         Sinks
       </li>
       {

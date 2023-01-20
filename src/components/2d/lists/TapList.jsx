@@ -3,7 +3,7 @@ import TapItem from '../items/TapItem'
 const TapList = (props) => {
   return (
     <ul>
-      <li className='font-bold px-4 py-2'>
+      <li className='md:text-base text-sm font-bold px-4 py-2'>
         Taps
       </li>
       {

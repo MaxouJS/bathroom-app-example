@@ -12,7 +12,7 @@ const TapItem = (props) => {
           ?
             <button
               onClick={() => setCurrentTap(props)}
-              className={`w-full px-4 py-2 hover:bg-neutral-100 duration-200 ${currentTap.name === props.name ? 'bg-neutral-100/50' : null}`}
+              className={`md:text-base text-xs w-full px-4 py-2 hover:bg-neutral-100 duration-200 ${currentTap.name === props.name ? 'bg-neutral-100/50' : null}`}
             >
               {props.name}
             </button>

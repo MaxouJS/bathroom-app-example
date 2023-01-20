@@ -46,7 +46,7 @@ const Bathroom = () => {
   }, [])
 
   return (
-    <div className='h-screen max-h-screen w-screen cursor-grab'>
+    <div className='h-screen w-screen cursor-grab'>
       <Canvas
         shadows
         onMouseDown={() => {setCursor('cursor-grabbing')}}
@@ -116,7 +116,7 @@ const Bathroom = () => {
                 <a className='text-xs underline hover:text-blue-600 duration-200' href='https://github.com/MaxouJS/bathroom-app-example' target='_blank'>GitHub Repo</a>
               </div>
               <div className='ml-auto flex-col bg-white/10 bg-clip-padding backdrop-filter backdrop-blur-md rounded-xl shadow-xl p-8 space-y-4 cursor-auto'>
-                <h1 className='text-2xl font-black pb-2 border-b border-black/25'>Bathroom Maker</h1>
+                <h1 className='md:text-2xl text-md font-black md:pb-2 border-b border-black/25'>Bathroom Maker</h1>
                 <div className='flex space-x-4'>
                   <RecoilBridge>
                     <SinkList sinks={sinks} />
