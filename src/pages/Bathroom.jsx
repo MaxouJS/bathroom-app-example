@@ -109,7 +109,7 @@ const Bathroom = () => {
           }
         </PresentationControls>
         <Html fullscreen>
-          <div className='absolute bottom-0 shadow-xl w-full p-4'>
+          <div className='max-h-screen absolute bottom-0 shadow-xl w-full p-4'>
             <div className='flex items-end'>
               <div className='flex-col bg-white/50 bg-clip-padding backdrop-filter backdrop-blur-md rounded-xl shadow-xl p-4 space-y-2 cursor-auto md:flex hidden'>
                 <span className='text-xs'>Made by Maxence Gumiero</span>
