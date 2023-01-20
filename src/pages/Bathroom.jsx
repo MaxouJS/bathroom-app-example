@@ -42,7 +42,7 @@ const Bathroom = () => {
   useEffect(() => {
     setCurrentSink(sinks[0])
     setCurrentTap(taps[0])
-  }, [setCurrentSink])
+  }, [])
 
   return (
     <div className='h-screen w-screen'>
@@ -73,10 +73,10 @@ const Bathroom = () => {
                 null
           }
           {
-            currentSink && currentSink.name === 'Silver Sink'
+            currentSink && currentSink.name === 'White Sink'
               ? 
                 <PrimitiveModel
-                  fileName='SilverSink'
+                  fileName='WhiteSink'
                   position={[0.7825, -0.5, 4]}
                 />
               :

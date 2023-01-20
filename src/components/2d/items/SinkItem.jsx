@@ -7,12 +7,18 @@ const SinkItem = (props) => {
 
   return (
     <li>
-      <button
-        onClick={setCurrentSink(props)}
-        className={`w-full px-4 py-2 hover:bg-neutral-100 duration-200 ${currentSink.name === props.name ? 'bg-neutral-100' : null}`}
-      >
-        {props.name}
-      </button>
+      {
+        currentSink
+          ?
+            <button
+              onClick={() => setCurrentSink(props)}
+              className={`w-full px-4 py-2 hover:bg-neutral-100 duration-200 ${currentSink.name === props.name ? 'bg-neutral-100/50' : null}`}
+            >
+              {props.name}
+            </button>
+          :
+            null
+      }
     </li>
   )
 }
