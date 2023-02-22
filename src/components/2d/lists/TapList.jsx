@@ -2,7 +2,7 @@ import TapItem from '../items/TapItem'
 
 const TapList = (props) => {
   return (
-    <div className='py-2 border-b border-black/25'>
+    <div className='py-2'>
       <span className='font-extrabold'>Tap</span>
       <ul className='grid grid-cols-4 gap-2'>
         {
