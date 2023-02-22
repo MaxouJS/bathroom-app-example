@@ -2,23 +2,23 @@ import SinkItem from '../items/SinkItem'
 
 const SinkList = (props) => {
   return (
-    <ul>
-      <li className='md:text-base text-sm font-bold px-4 py-2'>
-        Sink
-      </li>
-      {
-        props.sinks && props.sinks.length > 0
-          ?
-            props.sinks.map((s, index) => 
-              <SinkItem
-                key={index}
-                name={s.name}
-              />
-            )
-          :
-            null
-      }
-    </ul>
+    <div>
+      <span className='font-extrabold'>Sink</span>
+      <ul className='grid grid-cols-4 gap-4'>
+        {
+          props.sinks && props.sinks.length > 0
+            ?
+              props.sinks.map((s, index) => 
+                <SinkItem
+                  key={index}
+                  name={s.name}
+                />
+              )
+            :
+              null
+        }
+      </ul>
+    </div>
   )
 }
 

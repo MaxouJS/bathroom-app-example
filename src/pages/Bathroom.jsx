@@ -3,28 +3,27 @@ import { Suspense, useEffect, useState } from 'react'
 import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useRecoilState } from 'recoil'
 import { Canvas } from '@react-three/fiber'
 import { Html, PresentationControls, useProgress } from '@react-three/drei'
-import { ImSpinner8 } from 'react-icons/im'
 
 import SinkList from '../components/2d/lists/SinkList'
 import TapList from '../components/2d/lists/TapList'
-import VanityList from '../components/2d/lists/VanityList'
+import CabinetList from '../components/2d/lists/CabinetList'
 
 import PrimitiveModel from '../components/3d/PrimitiveModel'
 
 import currentSinkState from '../atoms/currentSinkState'
 import currentTapState from '../atoms/currentTapState'
-import currentVanityState from '../atoms/currentVanityState'
+import currentCabinetState from '../atoms/currentCabinetState'
 import isLoadedState from '../atoms/isLoadedState'
 
 const Loader = () => {
-  const { loaded, progress } = useProgress()
+  const { progress } = useProgress()
 
   const [isLoaded, setIsLoaded] = useRecoilState(isLoadedState)
 
   useEffect(() => {
     setIsLoaded(false)
     setIsLoaded(true)
-  }, [loaded])
+  }, [isLoaded])
 
   return (
     <Html fullscreen>
@@ -65,28 +64,28 @@ const Bathroom = () => {
     }
   ]
 
-  const vanities = [
+  const cabinets = [
     {
-      fileName: 'BlackVanity',
-      name: 'Black Vanity'
+      fileName: 'BlackCabinet',
+      name: 'Black Cabinet'
     },
     {
-      fileName: 'GreyVanity',
-      name: 'Grey Vanity'
+      fileName: 'GreyCabinet',
+      name: 'Grey Cabinet'
     },
     {
-      fileName: 'NeutralVanity',
-      name: 'Neutral Vanity'
+      fileName: 'NeutralCabinet',
+      name: 'Neutral Cabinet'
     },
     {
-      fileName: 'WhiteVanity',
-      name: 'White Vanity'
+      fileName: 'WhiteCabinet',
+      name: 'White Cabinet'
     }
   ]
 
   const [currentSink, setCurrentSink] = useRecoilState(currentSinkState)
   const [currentTap, setCurrentTap] = useRecoilState(currentTapState)
-  const [currentVanity, setCurrentVanity] = useRecoilState(currentVanityState)
+  const [currentCabinet, setCurrentCabinet] = useRecoilState(currentCabinetState)
   const [isLoaded, setIsLoaded] = useRecoilState(isLoadedState)
 
   const [cursor, setCursor] = useState('cursor-grab')
@@ -94,7 +93,7 @@ const Bathroom = () => {
   useEffect(() => {
     setCurrentSink(sinks[0])
     setCurrentTap(taps[0])
-    setCurrentVanity(vanities[0])
+    setCurrentCabinet(cabinets[0])
     setIsLoaded(false)
   }, [])
 
@@ -161,40 +160,40 @@ const Bathroom = () => {
                   null
             }
             {
-              currentVanity && currentVanity.name === 'Black Vanity'
+              currentCabinet && currentCabinet.name === 'Black Cabinet'
                 ? 
                   <PrimitiveModel
-                    fileName='BlackVanity'
+                    fileName='BlackCabinet'
                     position={[0.7825, -0.5, 4]}
                   />
                 :
                   null
             }
             {
-              currentVanity && currentVanity.name === 'Grey Vanity'
+              currentCabinet && currentCabinet.name === 'Grey Cabinet'
                 ? 
                   <PrimitiveModel
-                    fileName='GreyVanity'
+                    fileName='GreyCabinet'
                     position={[0.7825, -0.5, 4]}
                   />
                 :
                   null
             }
             {
-              currentVanity && currentVanity.name === 'Neutral Vanity'
+              currentCabinet && currentCabinet.name === 'Neutral Cabinet'
                 ? 
                   <PrimitiveModel
-                    fileName='NeutralVanity'
+                    fileName='NeutralCabinet'
                     position={[0.7825, -0.5, 4]}
                   />
                 :
                   null
             }
             {
-              currentVanity && currentVanity.name === 'White Vanity'
+              currentCabinet && currentCabinet.name === 'White Cabinet'
                 ? 
                   <PrimitiveModel
-                    fileName='WhiteVanity'
+                    fileName='WhiteCabinet'
                     position={[0.7825, -0.5, 4]}
                   />
                 :
@@ -221,7 +220,7 @@ const Bathroom = () => {
                       ))
                     }
                     {
-                      vanities.map((v, index) => (
+                      cabinets.map((v, index) => (
                         <PrimitiveModel key={index}
                             fileName={v.fileName}
                             position={[0.7825, -0.5, 4]}
@@ -247,12 +246,12 @@ const Bathroom = () => {
                   <a className='text-xs underline hover:text-blue-600 duration-200' href='https://github.com/MaxouJS/bathroom-app-example' target='_blank'>GitHub Repo</a>
                 </div>
                 <div className='ml-auto flex-col bg-white/10 bg-clip-padding backdrop-filter backdrop-blur-md rounded-xl shadow-xl p-8 space-y-4 cursor-auto'>
-                  <h1 className='md:text-2xl text-md font-black md:pb-2 border-b border-black/25'>Vanity builder</h1>
+                  <h1 className='md:text-2xl text-md font-black md:pb-2 border-b border-black/25'>Cabinet builder</h1>
                   <div className='flex-col'>
                     <RecoilBridge>
+                      <CabinetList cabinets={cabinets} />
                       <SinkList sinks={sinks} />
                       <TapList taps={taps} />
-                      <VanityList vanities={vanities} />
                     </RecoilBridge>
                   </div>
                 </div>
