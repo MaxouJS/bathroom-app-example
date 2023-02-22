@@ -35,10 +35,7 @@ const Loader = () => {
         <div className='flex-col text-center space-y-8'>
           <img src='./images/Tradelink.png' className='h-32' />
           <div className='flex-col space-y-4'>
-            <span className='text-4xl font-black text-white'>Loading {progress}</span>
-            <div className='flex justify-center'>
-              <ImSpinner8 className='text-4xl text-white animate-spin' />
-            </div>
+            <span className='text-4xl font-black text-white'>Loading {progress.toFixed(0)}%</span>
           </div>
         </div>
       </div>
