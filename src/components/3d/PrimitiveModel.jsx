@@ -23,6 +23,7 @@ const BathroomModel = (props) => {
   )
 }
 
+useGLTF.preload('/models/EmptyBathroom.glb')
 useGLTF.preload('/models/Bathroom.glb')
 useGLTF.preload('/models/BlackSink.glb')
 useGLTF.preload('/models/BlackTap.glb')

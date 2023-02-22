@@ -4,7 +4,7 @@ const TapList = (props) => {
   return (
     <ul>
       <li className='md:text-base text-sm font-bold px-4 py-2'>
-        Taps
+        Tap
       </li>
       {
         props.taps && props.taps.length > 0

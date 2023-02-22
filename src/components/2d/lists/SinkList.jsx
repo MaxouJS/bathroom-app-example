@@ -4,7 +4,7 @@ const SinkList = (props) => {
   return (
     <ul>
       <li className='md:text-base text-sm font-bold px-4 py-2'>
-        Sinks
+        Sink
       </li>
       {
         props.sinks && props.sinks.length > 0
