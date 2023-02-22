@@ -248,7 +248,7 @@ const Bathroom = () => {
                 </div>
                 */}
                 <div className='ml-auto flex-col bg-white/10 bg-clip-padding backdrop-filter backdrop-blur-md rounded-xl shadow-xl p-8 space-y-4 cursor-auto'>
-                  <h1 className='md:text-2xl text-md font-black md:pb-2 border-b border-black/25'>Vainty builder</h1>
+                  <h1 className='md:text-2xl text-md font-black md:pb-2 border-b border-black/25'>Vanity builder</h1>
                   <div className='flex-col'>
                     <RecoilBridge>
                       <CabinetList cabinets={cabinets} />
