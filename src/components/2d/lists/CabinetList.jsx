@@ -2,9 +2,9 @@ import CabinetItem from '../items/CabinetItem'
 
 const CabinetList = (props) => {
   return (
-    <div>
+    <div className='py-2 border-b border-black/25'>
       <span className='font-extrabold'>Vanity</span>
-      <ul className='grid grid-cols-4 gap-4'>
+      <ul className='grid grid-cols-4 gap-2'>
         {
           props.cabinets && props.cabinets.length > 0
             ?

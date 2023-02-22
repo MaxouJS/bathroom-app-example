@@ -2,9 +2,9 @@ import SinkItem from '../items/SinkItem'
 
 const SinkList = (props) => {
   return (
-    <div>
+    <div className='py-2 border-b border-black/25'>
       <span className='font-extrabold'>Basin</span>
-      <ul className='grid grid-cols-4 gap-4'>
+      <ul className='grid grid-cols-4 gap-2'>
         {
           props.sinks && props.sinks.length > 0
             ?

@@ -2,9 +2,9 @@ import TapItem from '../items/TapItem'
 
 const TapList = (props) => {
   return (
-    <div>
+    <div className='py-2 border-b border-black/25'>
       <span className='font-extrabold'>Tap</span>
-      <ul className='grid grid-cols-4 gap-4'>
+      <ul className='grid grid-cols-4 gap-2'>
         {
           props.taps && props.taps.length > 0
             ?
