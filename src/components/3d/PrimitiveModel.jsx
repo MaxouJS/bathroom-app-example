@@ -24,10 +24,17 @@ const BathroomModel = (props) => {
 }
 
 useGLTF.preload('/models/EmptyBathroom.glb')
-useGLTF.preload('/models/Bathroom.glb')
 useGLTF.preload('/models/BlackSink.glb')
 useGLTF.preload('/models/BlackTap.glb')
 useGLTF.preload('/models/SilverTap.glb')
 useGLTF.preload('/models/WhiteSink.glb')
+useGLTF.preload('/models/BlackCabinet.glb')
+useGLTF.preload('/models/BlackCabinetFloor.glb')
+useGLTF.preload('/models/GreyCabinet.glb')
+useGLTF.preload('/models/GreyCabinetFloor.glb')
+useGLTF.preload('/models/NeutralCabinet.glb')
+useGLTF.preload('/models/NeutralCabinetFloor.glb')
+useGLTF.preload('/models/WhiteCabinet.glb')
+useGLTF.preload('/models/WhiteCabinetFloor.glb')
 
 export default BathroomModel
