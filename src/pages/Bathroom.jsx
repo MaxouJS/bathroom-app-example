@@ -67,19 +67,43 @@ const Bathroom = () => {
   const cabinets = [
     {
       fileName: 'BlackCabinet',
+      mounted: true,
       name: 'Black Cabinet'
     },
     {
       fileName: 'GreyCabinet',
+      mounted: true,
       name: 'Grey Cabinet'
     },
     {
       fileName: 'NeutralCabinet',
+      mounted: true,
       name: 'Neutral Cabinet'
     },
     {
       fileName: 'WhiteCabinet',
+      mounted: true,
       name: 'White Cabinet'
+    },
+    {
+      fileName: 'BlackCabinetFloor',
+      mounted: false,
+      name: 'Black Cabinet Floor'
+    },
+    {
+      fileName: 'GreyCabinetFloor',
+      mounted: false,
+      name: 'Grey Cabinet Floor'
+    },
+    {
+      fileName: 'NeutralCabinetFloor',
+      mounted: false,
+      name: 'Neutral Cabinet Floor'
+    },
+    {
+      fileName: 'WhiteCabinetFloor',
+      mounted: false,
+      name: 'White Cabinet Floor'
     }
   ]
 
@@ -194,6 +218,45 @@ const Bathroom = () => {
                 ? 
                   <PrimitiveModel
                     fileName='WhiteCabinet'
+                    position={[0.7825, -0.5, 4]}
+                  />
+                :
+                  null
+            }{
+              currentCabinet && currentCabinet.name === 'Black Cabinet Floor'
+                ? 
+                  <PrimitiveModel
+                    fileName='BlackCabinetFloor'
+                    position={[0.7825, -0.5, 4]}
+                  />
+                :
+                  null
+            }
+            {
+              currentCabinet && currentCabinet.name === 'Grey Cabinet Floor'
+                ? 
+                  <PrimitiveModel
+                    fileName='GreyCabinetFloor'
+                    position={[0.7825, -0.5, 4]}
+                  />
+                :
+                  null
+            }
+            {
+              currentCabinet && currentCabinet.name === 'Neutral Cabinet Floor'
+                ? 
+                  <PrimitiveModel
+                    fileName='NeutralCabinetFloor'
+                    position={[0.7825, -0.5, 4]}
+                  />
+                :
+                  null
+            }
+            {
+              currentCabinet && currentCabinet.name === 'White Cabinet Floor'
+                ?
+                  <PrimitiveModel
+                    fileName='WhiteCabinetFloor'
                     position={[0.7825, -0.5, 4]}
                   />
                 :
