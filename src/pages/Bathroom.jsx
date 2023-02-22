@@ -11,23 +11,20 @@ import VanityList from '../components/2d/lists/VanityList'
 
 import PrimitiveModel from '../components/3d/PrimitiveModel'
 
-import loadedState from '../atoms/loadedState'
 import currentSinkState from '../atoms/currentSinkState'
 import currentTapState from '../atoms/currentTapState'
 import currentVanityState from '../atoms/currentVanityState'
+import isLoadedState from '../atoms/isLoadedState'
 
 const Loader = () => {
-  const { progress } = useProgress()
+  const { loaded, progress } = useProgress()
 
-  const [loaded, setLoaded] = useRecoilState(loadedState)
+  const [isLoaded, setIsLoaded] = useRecoilState(isLoadedState)
 
   useEffect(() => {
-    setLoaded(false)
-
-    if (progress >= 100) {
-      setLoaded(true)
-    }
-  }, [progress])
+    setIsLoaded(false)
+    setIsLoaded(true)
+  }, [loaded])
 
   return (
     <Html fullscreen>
@@ -90,7 +87,7 @@ const Bathroom = () => {
   const [currentSink, setCurrentSink] = useRecoilState(currentSinkState)
   const [currentTap, setCurrentTap] = useRecoilState(currentTapState)
   const [currentVanity, setCurrentVanity] = useRecoilState(currentVanityState)
-  const [loaded, setLoaded] = useRecoilState(loadedState)
+  const [isLoaded, setIsLoaded] = useRecoilState(isLoadedState)
 
   const [cursor, setCursor] = useState('cursor-grab')
   
@@ -98,6 +95,7 @@ const Bathroom = () => {
     setCurrentSink(sinks[0])
     setCurrentTap(taps[0])
     setCurrentVanity(vanities[0])
+    setIsLoaded(false)
   }, [])
 
   return (
@@ -203,7 +201,7 @@ const Bathroom = () => {
                   null
             }
             {
-              !loaded
+              !isLoaded
                 ?
                   <>
                     {
