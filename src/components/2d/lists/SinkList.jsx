@@ -3,7 +3,7 @@ import SinkItem from '../items/SinkItem'
 const SinkList = (props) => {
   return (
     <div>
-      <span className='font-extrabold'>Sink</span>
+      <span className='font-extrabold'>Basin</span>
       <ul className='grid grid-cols-4 gap-4'>
         {
           props.sinks && props.sinks.length > 0
